@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.estimote.examples.demos"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+	<uses-sdk
+      android:minSdkVersion="18"
+      android:targetSdkVersion="18"/>
+
+	<!-- Needed permissions in order to scan for beacons. -->
+	<uses-permission android:name="android.permission.BLUETOOTH"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+	<uses-permission android:name="android.permission.INTERNET" />    
+  
+  <!-- Declaration that this app is usable on phones with Bluetooth Low Energy. -->
+  <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+  <application
+      android:label="Ultimate Movie Goer"
+      android:theme="@android:style/Theme.Holo.Light">
+	
+    <activity
+        android:name="com.ibeacon.demos.AllDemosActivity"
+        android:label="Ultimate Movie Goer Your VIP Experience"
+        android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <activity
+			android:name="com.ibeacon.demos.ListBeaconsActivity"
+			android:label="Select Beacon"
+			android:screenOrientation="portrait"/>
+
+    <activity android:name="com.ibeacon.demos.DistanceBeaconActivity"
+              android:label="Finding My Customer ..."
+              android:screenOrientation="portrait"/>
+
+    <activity android:name="com.estimote.examples.hdemos.NotifyDemoActivity"
+              android:label="Notification Test"
+              android:screenOrientation="portrait"/>
+
+    <activity android:name="com.ibeacon.demos.CharacteristicsDemoActivity"
+              android:label="Characteristics Test"
+              android:screenOrientation="portrait"/>
+
+    <activity android:name="com.ibeacon.demos.FindMyBeaconActivity"
+              android:label="Finding Beacons ..."
+              android:noHistory="true"
+              android:screenOrientation="portrait"/>    
+    
+    <!-- Estimote service responsible for scanning beacons. -->
+    <service android:name="com.estimote.sdk.service.BeaconService"
+             android:exported="false"/>
+  </application>
+
+</manifest>
